@@ -1,3 +1,6 @@
+// tired pleaseeee
+// task 0 why no work
+
 import React, {Component } from 'react';
 import PropTypes from 'prop-types';
 import './App.css';
@@ -47,3 +50,4 @@ App.propTypes = {
 }
 
 export default App;
+

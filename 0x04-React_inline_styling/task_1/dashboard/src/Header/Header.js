@@ -1,3 +1,5 @@
+// almost done
+// aphrodite here as well
 import React from "react";
 import holberton_logo from "../assets/holberton_logo.jpg";
 import { StyleSheet, css } from "aphrodite";

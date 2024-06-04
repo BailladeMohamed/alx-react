@@ -1,30 +1,41 @@
+// maybe the error is here ?
 import React from "react";
 import PropTypes from "prop-types";
 
-function CourseListRow({ isHeader, textFirstCell, textSecondCell }) {
-  const headerStyle = { backgroundColor: "#deb5b545" };
-  const rowStyle = { backgroundColor: "#f5f5f5ab" };
-  const selectedStyle = isHeader ? headerStyle : rowStyle;
+const rowStyles = { backgroundColor: "#f5f5f5ab" };
+const headerRowStyles = { backgroundColor: "#deb5b545" };
 
-  return (
-    <tr style={selectedStyle}>
-      {isHeader ? (
-        textSecondCell === null ? (
-          <th colSpan="2">{textFirstCell}</th>
-        ) : (
-          <>
-            <th>{textFirstCell}</th>
-            <th>{textSecondCell}</th>
-          </>
-        )
-      ) : (
+function CourseListRow({ isHeader, textFirstCell, textSecondCell }) {
+  let element;
+
+  if (isHeader === true) {
+    //
+    if (textSecondCell === null) {
+      element = <th colSpan="2">{textFirstCell}</th>;
+    } else {
+      element = (
         <>
-          <td>{textFirstCell}</td>
-          <td>{textSecondCell}</td>
+          <th>{textFirstCell}</th>
+          <th>{textSecondCell}</th>
         </>
-      )}
-    </tr>
-  );
+      );
+    }
+    //
+  } else if (isHeader === false) {
+    element = (
+      <>
+        <td>{textFirstCell}</td>
+        <td>{textSecondCell}</td>
+      </>
+    );
+  }
+
+  let isHeaderStyle;
+
+  if (isHeader) isHeaderStyle = headerRowStyles;
+  else isHeaderStyle = rowStyles;
+
+  return <tr style={isHeaderStyle}>{element}</tr>;
 }
 
 CourseListRow.defaultProps = {
@@ -34,7 +45,7 @@ CourseListRow.defaultProps = {
 
 CourseListRow.propTypes = {
   isHeader: PropTypes.bool,
-  textFirstCell: PropTypes.string,
+  textFirstCell: PropTypes.string.isRequired,
   textSecondCell: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 

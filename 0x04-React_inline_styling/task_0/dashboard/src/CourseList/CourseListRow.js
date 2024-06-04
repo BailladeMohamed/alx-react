@@ -1,42 +1,32 @@
-// maybe the error is here ?
-import React from "react";
-import PropTypes from "prop-types";
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 
-const rowStyles = { backgroundColor: "#f5f5f5ab" };
-const headerRowStyles = { backgroundColor: "#deb5b545" };
-
-function CourseListRow({ isHeader, textFirstCell, textSecondCell }) {
-  let element;
+const CourseListRow = ({ isHeader, textFirstCell, textSecondCell }) => {
+  let tr = undefined;
 
   if (isHeader === true) {
-    //
     if (textSecondCell === null) {
-      element = <th colSpan="2">{textFirstCell}</th>;
+      tr = <th colSpan='2'>{textFirstCell}</th>;
     } else {
-      element = (
-        <>
+      tr = (
+        <Fragment>
           <th>{textFirstCell}</th>
           <th>{textSecondCell}</th>
-        </>
+        </Fragment>
       );
     }
-    //
-  } else if (isHeader === false) {
-    element = (
-      <>
+  }
+  if (isHeader === false) {
+    tr = (
+      <Fragment>
         <td>{textFirstCell}</td>
         <td>{textSecondCell}</td>
-      </>
+      </Fragment>
     );
   }
 
-  let isHeaderStyle;
-
-  if (isHeader) isHeaderStyle = headerRowStyles;
-  else isHeaderStyle = rowStyles;
-
-  return <tr style={isHeaderStyle}>{element}</tr>;
-}
+  return <tr>{tr}</tr>;
+};
 
 CourseListRow.defaultProps = {
   isHeader: false,

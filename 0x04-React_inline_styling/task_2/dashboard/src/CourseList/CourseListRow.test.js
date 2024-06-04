@@ -1,3 +1,5 @@
+// the task is compelted
+// hope the test suits are working
 import { shallow } from "enzyme";
 import React from "react";
 import CourseListRow from "./CourseListRow";

@@ -1,3 +1,4 @@
+// all code is good code
 import { shallow, mount } from "enzyme";
 import React from "react";
 import App from "./App";

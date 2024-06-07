@@ -1,3 +1,5 @@
+// miaw miaw a cat wrote this code
+// jk its Aphrodite
 import React, { Component } from "react";
 import Notifications from "../Notifications/Notifications";
 import Header from "../Header/Header";

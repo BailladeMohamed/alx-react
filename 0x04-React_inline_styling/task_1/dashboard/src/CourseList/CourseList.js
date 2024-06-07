@@ -1,3 +1,5 @@
+// happy :)
+// aphrodite here as well <3
 import React from "react";
 import CourseListRow from "./CourseListRow";
 import PropTypes from "prop-types";
